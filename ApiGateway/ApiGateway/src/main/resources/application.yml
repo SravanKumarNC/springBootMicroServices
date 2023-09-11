@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: prod
+  config:
+    import: optional:configserver:http://localhost:8083

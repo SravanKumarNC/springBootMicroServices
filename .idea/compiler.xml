@@ -9,15 +9,21 @@
         <outputRelativeToContentRoot value="true" />
         <module name="caseService" />
         <module name="dicoveryService" />
+        <module name="ConfigService" />
+        <module name="ApiGateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ApiGateway" target="17" />
       <module name="caseService" target="17" />
+      <module name="ConfigService" target="17" />
       <module name="dicoveryService" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
+      <module name="ConfigService" options="-parameters" />
       <module name="caseService" options="-parameters" />
       <module name="dicoveryService" options="-parameters" />
     </option>

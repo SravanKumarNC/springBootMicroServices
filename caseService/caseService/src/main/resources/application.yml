@@ -1,25 +1,4 @@
-server:
-  port: 8081
-
 spring:
-  application:
-    name: CASE-SERVICE
-  datasource:
-    url: jdbc:mysql://localhost:3306/case_service
-    username: root
-    password: Hindupur@12
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  config:
+    import: optional:configserver:http://localhost:8083
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    fetch-registry: true
-    registry-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
