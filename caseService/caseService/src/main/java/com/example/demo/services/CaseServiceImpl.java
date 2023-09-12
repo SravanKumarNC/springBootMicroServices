@@ -6,8 +6,12 @@ import com.example.demo.repositories.CaseRepository;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,5 +64,12 @@ public class CaseServiceImpl implements CaseService{
     @Override
     public List<CaseEntity> getAllCases() {
         return caseRepository.findAll();
+    }
+
+    @Override
+    public List<CaseEntity> getAllCasesByPagination(Integer pageNumber, Integer pageSize) {
+        Pageable page = PageRequest.of(pageNumber, pageSize);
+        Page<CaseEntity> pageCases = caseRepository.findAll(page);
+        return pageCases.hasContent() ? pageCases.getContent() : new ArrayList<>();
     }
 }

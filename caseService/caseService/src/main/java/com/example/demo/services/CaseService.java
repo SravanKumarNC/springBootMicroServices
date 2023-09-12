@@ -20,5 +20,6 @@ public interface CaseService {
 
     List<CaseEntity> getAllCases();
 
+    List<CaseEntity> getAllCasesByPagination(Integer pageNumber, Integer fetchSize);
 
 }
